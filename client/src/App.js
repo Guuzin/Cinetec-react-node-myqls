@@ -1,5 +1,6 @@
 import './App.css'
-import Index from './components/Index'
+import Index from './pages/Index'
+import Ator from './pages/Ator'
 import Cadastro from './pages/Cadastro'
 import CadastroAtor from './pages/CadastroAtor'
 import Home from './pages/Home'
@@ -16,7 +17,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Cadastro />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/register/actor" element={<CadastroAtor/>} />
+          <Route path="/register/actor" element={<CadastroAtor />} />
+          <Route path="/actor" element={<Ator />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -9,4 +9,15 @@ async function createDirector(nameDirector, nationality, sex, birth) {
   await connect.query(sql, dataDirector)
   connect.end()
 }
-module.exports = { createDirector }
+
+async function searchDirector(nameDirector, nationality, sex, birth) {
+  const sql = `select * from tbl_diretor`
+
+  const dataDirector = [nameDirector, nationality, sex, birth]
+
+  const connect = await database.connect()
+  const [rows] = await connect.query(sql, dataDirector)
+  connect.end()
+  return rows
+}
+module.exports = { createDirector, searchDirector }

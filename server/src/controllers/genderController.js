@@ -13,4 +13,12 @@ routes.post('/', (req, res) => {
   }
 })
 
+routes.get('/', async (req, res) => {
+  try {
+    const gender = await db.searchGender()
+    res.status(200).send(gender)
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` })
+  }
+})
 module.exports = routes

@@ -13,4 +13,13 @@ routes.post('/', (req, res) => {
   }
 })
 
+routes.get('/', async (req, res) => {
+  try {
+    const actor = await db.searchActor()
+    res.status(200).send(actor)
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` })
+  }
+})
+
 module.exports = routes

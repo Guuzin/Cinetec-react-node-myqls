@@ -9,4 +9,15 @@ async function createActor(nameActor, sex, birth) {
   await connect.query(sql, dataActor)
   connect.end()
 }
-module.exports = { createActor }
+
+async function searchActor(nameActor, sex, birth) {
+  const sql = `select * from tbl_ator`
+
+  const dataActor = [nameActor, sex, birth]
+
+  const connect = await database.connect()
+  const [rows] = await connect.query(sql, dataActor)
+  connect.end()
+  return rows
+}
+module.exports = { createActor, searchActor }

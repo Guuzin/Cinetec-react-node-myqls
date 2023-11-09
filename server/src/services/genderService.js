@@ -9,4 +9,15 @@ async function createGender(gender) {
   await connect.query(sql, dataGender)
   connect.end()
 }
-module.exports = { createGender }
+
+async function searchGender(gender) {
+  const sql = `select * from tbl_genero`
+
+  const dataGender = [gender]
+
+  const connect = await database.connect()
+  const [rows] = await connect.query(sql, dataGender)
+  connect.end()
+  return rows
+}
+module.exports = { createGender, searchGender }

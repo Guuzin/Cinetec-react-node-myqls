@@ -3,6 +3,7 @@ const userController = require('./controllers/userController.js')
 const actorController = require('./controllers/actorController.js')
 const directorController = require('./controllers/directorController.js')
 const genderController = require('./controllers/genderController.js')
+const loginController = require('./controllers/loginController.js')
 
 const routes = express()
 
@@ -11,6 +12,8 @@ routes.get('/', (req, res) => {
 })
 
 routes.use('/user', userController)
+
+routes.use('/login', loginController)
 
 routes.use('/actor', actorController)
 

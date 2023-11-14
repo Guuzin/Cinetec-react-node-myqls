@@ -20,4 +20,15 @@ async function searchActor(nameActor, sex, birth) {
   connect.end()
   return rows
 }
-module.exports = { createActor, searchActor }
+
+async function searchActorQuery(nameActor) {
+  const sql = `SELECT * FROM tbl_ator where nome_ator LIKE ? `
+
+  const dataActor = [nameActor]
+
+  const connect = await database.connect()
+  const [rows] = await connect.query(sql, dataActor)
+  connect.end()
+  return rows
+}
+module.exports = { createActor, searchActor, searchActorQuery }

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Header.css'
+import './style.css'
 import Searchbar from '../SearchBar'
 
 function Header() {

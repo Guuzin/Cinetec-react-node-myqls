@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import api from '../../api'
 import ActorCard from '../ActorCard'
-import './Actor.css'
+import './style.css'
+import Loading from '../Loading'
+import AppContext from '../../context/AppContext'
 
 export default function Actor() {
-  const [actor, setActor] = useState([])
+  const { actor, setActor, loading, setLoading } = useContext(AppContext)
 
   async function searchActor() {
     try {
@@ -13,18 +15,21 @@ export default function Actor() {
 
       setActor(data)
     } catch (erro) {
-      alert(`Erro ao cadastrar. ${erro}`)
+      setLoading(true)
     }
   }
 
   useEffect(() => {
     searchActor()
+    setLoading(false)
   }, [])
   return (
-    <div className="actor container">
-      {actor.map((actor) => (
-        <ActorCard key={actor.id} data={actor} />
-      ))}
-    </div>
+    (loading && <Loading />) || (
+      <div className="actor container">
+        {actor.map((actor) => (
+          <ActorCard key={actor.id} data={actor} />
+        ))}
+      </div>
+    )
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import './ActorCard.css'
+import './style.css'
 
 export default function ActorCard({ data }) {
   const { nome_ator, dt_nascimento } = data

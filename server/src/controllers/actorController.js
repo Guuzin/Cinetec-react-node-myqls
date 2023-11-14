@@ -15,8 +15,17 @@ routes.post('/', (req, res) => {
 
 routes.get('/', async (req, res) => {
   try {
-    const actor = await db.searchActor()
-    res.status(200).send(actor)
+    const query = req.query
+    const { nome_ator } = query
+
+    if (!nome_ator) {
+      const actor = await db.searchActor()
+      res.status(200).send(actor)
+      return
+    }
+
+    const actorQuery = await db.searchActorQuery(nome_ator)
+    res.status(200).send(actorQuery)
   } catch (error) {
     return res.status(404).send({ message: `${error}` })
   }

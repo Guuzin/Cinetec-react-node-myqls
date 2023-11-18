@@ -1,15 +1,29 @@
 const express = require('express')
 const db = require('../services/actorService.js')
+const upload = require('../config/multer.js')
+
+let image
 
 const routes = express.Router()
+
 routes.post('/', (req, res) => {
   try {
     const { nameActor, sex, birth } = req.body
 
-    db.createActor(nameActor, sex, birth)
+    db.createActor(nameActor, sex, birth, image)
+
     res.status(201).send({ message: 'Ator criado com sucesso!' })
   } catch (error) {
-    return res.status(404).send({ message: `${error}` })
+    return res.status(404).send({ message: `${error}` }, console.log(error))
+  }
+})
+
+routes.post('/upload', upload.single('image'), (req, res) => {
+  try {
+    image = req.file.filename
+    res.status(201).send({ message: 'Upload feito com sucesso!' })
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` }, console.log(error))
   }
 })
 

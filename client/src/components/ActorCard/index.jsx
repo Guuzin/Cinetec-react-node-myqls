@@ -2,17 +2,18 @@ import React from 'react'
 import './style.css'
 
 export default function ActorCard({ data }) {
-  const { nome_ator, dt_nascimento } = data
+  const { nome_ator, dt_nascimento, foto_ator } = data
 
   const options = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   }
+
   return (
     <div className="actor-card">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Nicolas_Cage_Deauville_2013.jpg"
+        src={`http://localhost:3333/${foto_ator}`}
         alt="img"
         className="card__image"
       />

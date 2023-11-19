@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AdminAtor from './pages/AdminAtor'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/register/actor" element={<CadastroAtor />} />
           <Route path="/actor" element={<Ator />} />
+          <Route path="/admin/actor" element={<AdminAtor />} />
         </Routes>
       </BrowserRouter>
     </div>

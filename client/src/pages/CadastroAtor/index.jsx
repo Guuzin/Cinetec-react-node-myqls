@@ -17,9 +17,7 @@ export default function CadastroAtor() {
 
     try {
       await api.post('/actor/upload', formData)
-
-      alert('Upload feito com sucesso!')
-    } catch (erro) {
+()    } catch (erro) {
       alert(`Erro fazer o upload. ${erro}`)
     }
 

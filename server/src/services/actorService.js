@@ -10,10 +10,37 @@ async function createActor(nameActor, sex, birth, image) {
   connect.end()
 }
 
-async function searchActor(nameActor, sex, birth, image) {
+async function searchActor(id, nameActor, sex, birth, image) {
   const sql = `select * from tbl_ator`
 
-  const dataActor = [nameActor, sex, birth, image]
+  const dataActor = [id, nameActor, sex, birth, image]
+
+  const connect = await database.connect()
+  const [rows] = await connect.query(sql, dataActor)
+  connect.end()
+  return rows
+}
+
+async function editActor(nameActor, sex, birth, image, id) {
+  const sql = `UPDATE tbl_ator
+  SET nome_ator = ?,
+      sexo = ?,
+      dt_nascimento = ?,
+      foto_ator = ?
+  WHERE id_ator = ?`
+
+  const dataActor = [nameActor, sex, birth, image, id]
+
+  const connect = await database.connect()
+  const [rows] = await connect.query(sql, dataActor)
+  connect.end()
+  return rows
+}
+
+async function deleteActor(id) {
+  const sql = `DELETE FROM tbl_ator WHERE id_ator = ?`
+
+  const dataActor = [id]
 
   const connect = await database.connect()
   const [rows] = await connect.query(sql, dataActor)
@@ -31,4 +58,10 @@ async function searchActorQuery(nameActor) {
   connect.end()
   return rows
 }
-module.exports = { createActor, searchActor, searchActorQuery }
+module.exports = {
+  createActor,
+  searchActor,
+  searchActorQuery,
+  editActor,
+  deleteActor,
+}

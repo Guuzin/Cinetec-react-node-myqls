@@ -1,14 +1,13 @@
-import React from 'react'
 import Provider from '../../context/Provider'
-import AdmActor from '../../components/AdmActor'
+import Director from '../../components/Director'
 import Header from '../../components/Header'
 
-export default function AdminAtor() {
+export default function Diretor() {
   return (
     <div>
       <Provider>
         <Header />
-        <AdmActor />
+        <Director />
       </Provider>
     </div>
   )

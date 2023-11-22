@@ -6,16 +6,20 @@ import AppContext from '../../context/AppContext'
 
 export default function Searchbar() {
   const [searchValue, setSearchValue] = useState('')
-  const { setActor, setLoading } = useContext(AppContext)
+  const { setActor, setDirector, setLoading } = useContext(AppContext)
 
   const handleSearch = async (event) => {
     event.preventDefault()
     setLoading(true)
 
+    const response2 = await api.get(`/director?nome_diretor=%${searchValue}%`)
+    const director = response2.data
+
     const response = await api.get(`/actor?nome_ator=%${searchValue}%`)
     const actor = response.data
 
     setActor(actor)
+    setDirector(director)
     setLoading(false)
     setSearchValue('')
   }

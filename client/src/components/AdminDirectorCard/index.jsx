@@ -2,24 +2,39 @@ import React, { useState } from 'react'
 import './style.css'
 import api from '../../api'
 
-export default function AdminActorCard({ data }) {
-  const { id_ator, nome_ator, dt_nascimento, sexo, foto_ator } = data
-  const [nameActor, setNameActor] = useState(nome_ator)
+export default function AdminDirectorCard({ data }) {
+  const {
+    id_diretor,
+    nome_diretor,
+    nacionalidade,
+    dt_nascimento,
+    sexo,
+    foto_diretor,
+  } = data
+  const [nameDirector, setNameDirector] = useState(nome_diretor)
+  const [nationality, setNationality] = useState(nacionalidade)
   const [sex, setSex] = useState(sexo)
   const [birth, setBirth] = useState(
     new Date(dt_nascimento).toJSON().replace('T03:06:28.000Z', '')
   )
   const [image, setImage] = useState('')
 
-  const dataActor = { id_ator, nameActor, sex, birth }
-  const dataActor2 = { id_ator, nameActor, sex, birth, foto_ator }
+  const dataDirector = { id_diretor, nameDirector, nationality, sex, birth }
+  const dataDirector2 = {
+    id_diretor,
+    nameDirector,
+    nationality,
+    sex,
+    birth,
+    foto_diretor,
+  }
 
   const formData = new FormData()
   formData.append('image', image)
 
-  async function handleEditActor() {
+  async function handleEditDirector() {
     try {
-      if (image) await api.put('/actor/edit/upload', formData)
+      if (image) await api.put('/director/edit/upload', formData)
     } catch (erro) {
       alert(`Erro fazer o upload. ${erro}`)
       console.log(erro)
@@ -27,22 +42,22 @@ export default function AdminActorCard({ data }) {
 
     try {
       if (image) {
-        await api.put('http://localhost:3333/actor/edit', dataActor)
-        alert('Ator editado com sucesso')
+        await api.put('http://localhost:3333/director/edit', dataDirector)
+        alert('Diretor editado com sucesso')
         return
       }
 
-      await api.put('http://localhost:3333/actor/edit', dataActor2)
-      alert('Ator editado com sucesso')
+      await api.put('http://localhost:3333/director/edit', dataDirector2)
+      alert('Diretor editado com sucesso')
     } catch (erro) {
       alert(`Erro ao editar. ${erro}`)
     }
   }
 
-  async function handleDeleteActor() {
+  async function handleDeleteDirector() {
     try {
-      await api.delete(`http://localhost:3333/actor/delete/${id_ator}`)
-      alert('Ator deletado com sucesso')
+      await api.delete(`http://localhost:3333/Director/delete/${id_diretor}`)
+      alert('Diretor deletado com sucesso')
     } catch (erro) {
       alert(`Erro ao deletar. ${erro}`)
     }
@@ -68,7 +83,7 @@ export default function AdminActorCard({ data }) {
       ) : (
         <img
           alt="Imagem"
-          src={`http://localhost:3333/${foto_ator}`}
+          src={`http://localhost:3333/${foto_diretor}`}
           className="card__image"
         />
       )}
@@ -77,8 +92,14 @@ export default function AdminActorCard({ data }) {
         <div className="inputs">
           <input
             type="text"
-            value={nameActor}
-            onChange={(e) => setNameActor(e.target.value)}
+            value={nameDirector}
+            onChange={(e) => setNameDirector(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            value={nationality}
+            onChange={(e) => setNationality(e.target.value)}
             required
           />
           <input
@@ -99,10 +120,10 @@ export default function AdminActorCard({ data }) {
         </div>
 
         <div className="div_buttons">
-          <button onClick={handleEditActor} className="button__blue">
+          <button onClick={handleEditDirector} className="button__blue">
             edit
           </button>
-          <button onClick={handleDeleteActor} className="button__red">
+          <button onClick={handleDeleteDirector} className="button__red">
             delete
           </button>
         </div>

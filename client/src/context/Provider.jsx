@@ -3,6 +3,7 @@ import propTypes from 'prop-types'
 import AppContext from './AppContext.js'
 
 export default function Provider({ children }) {
+  const [director, setDirector] = useState([])
   const [actor, setActor] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -11,7 +12,10 @@ export default function Provider({ children }) {
     setActor,
     loading,
     setLoading,
+    director,
+    setDirector,
   }
+
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }

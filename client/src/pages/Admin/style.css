@@ -1,0 +1,94 @@
+.title {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.container__adm {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.btn-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.btn-container:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.5s;
+
+    .btn-text {
+        transition-duration: 0.5s;
+        color: #555;
+    }
+}
+
+.btn-text {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 14px;
+    padding-bottom: 6px;
+    color: #ccc;
+}
+
+
+.button__registrar {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 14px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #04AA6D;
+    transition-duration: 0.5s;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button__registrar:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #04AA6D;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button__registrar:active {
+    background-color: #04AA6D;
+    transform: translateY(4px);
+}
+
+.button__adminstrar {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 14px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #008CBA;
+    transition-duration: 0.5s;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button__adminstrar:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button__adminstrar:active {
+    background-color: #008CBA;
+    transform: translateY(4px);
+}

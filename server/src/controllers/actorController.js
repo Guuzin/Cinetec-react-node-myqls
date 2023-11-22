@@ -4,8 +4,6 @@ const upload = require('../config/multer.js')
 
 let image
 
-let image2
-
 const routes = express.Router()
 
 routes.post('/', (req, res) => {
@@ -73,7 +71,6 @@ routes.put('/edit/upload', upload.single('image'), (req, res) => {
     return res.status(404).send({ message: `${error}` }, console.log(error))
   }
 })
-
 
 routes.delete('/delete/:id_ator', (req, res) => {
   try {

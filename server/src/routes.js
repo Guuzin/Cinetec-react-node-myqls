@@ -4,6 +4,7 @@ const actorController = require('./controllers/actorController.js')
 const directorController = require('./controllers/directorController.js')
 const genderController = require('./controllers/genderController.js')
 const loginController = require('./controllers/loginController.js')
+const movieController = require('./controllers/movieController.js')
 
 const routes = express()
 
@@ -20,5 +21,7 @@ routes.use('/actor', actorController)
 routes.use('/director', directorController)
 
 routes.use('/gender', genderController)
+
+routes.use('/movie', movieController)
 
 module.exports = routes

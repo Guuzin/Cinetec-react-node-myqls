@@ -11,6 +11,7 @@ import Admin from './pages/Admin'
 import Diretor from './pages/Diretor'
 import CadastroDiretor from './pages/CadastroDiretor'
 import AdminDiretor from './pages/AdminDiretor'
+import CadastroFilme from './pages/CadastroFilme'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             path="/admin/register/director"
             element={<CadastroDiretor />}
           />
+          <Route path="/admin/register/movie" element={<CadastroFilme />} />
           <Route path="/admin/actor" element={<AdminAtor />} />
           <Route path="/admin/director" element={<AdminDiretor />} />
         </Routes>

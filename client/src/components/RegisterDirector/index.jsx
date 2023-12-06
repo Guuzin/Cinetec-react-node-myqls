@@ -13,7 +13,6 @@ export default function RegisterDirector() {
     e.preventDefault()
 
     const dataDirector = { nameDirector, nationality, sex, birth }
-    console.log(`teste ${sex}`)
 
     const formData = new FormData()
     formData.append('image', image)

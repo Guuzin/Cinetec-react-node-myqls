@@ -16,10 +16,10 @@ async function createDirector(
   connect.end()
 }
 
-async function searchDirector(nameDirector, nationality, sex, birth) {
+async function searchDirector(id, nameDirector, nationality, sex, birth) {
   const sql = `select * from tbl_diretor`
 
-  const dataDirector = [nameDirector, nationality, sex, birth]
+  const dataDirector = [id, nameDirector, nationality, sex, birth]
 
   const connect = await database.connect()
   const [rows] = await connect.query(sql, dataDirector)

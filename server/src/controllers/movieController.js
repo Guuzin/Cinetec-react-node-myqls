@@ -43,4 +43,79 @@ routes.get('/', async (req, res) => {
   }
 })
 
+routes.get('/data', async (req, res) => {
+  try {
+    const movies = await db.searchMovieData()
+    res.status(200).send(movies)
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` })
+  }
+})
+
+routes.put('/edit', (req, res) => {
+  try {
+    if (!image) {
+      const {
+        nameMovie,
+        releaseYear,
+        duration,
+        genderId,
+        directorId,
+        foto_filme,
+        id_filme,
+      } = req.body
+      db.editMovie(
+        nameMovie,
+        releaseYear,
+        duration,
+        genderId,
+        directorId,
+        foto_filme,
+        id_filme
+      )
+      res.status(201).send({ message: 'Filme editado com sucesso!' })
+      return
+    }
+
+    const { nameMovie, releaseYear, duration, genderId, directorId, id_filme } =
+      req.body
+    db.editMovie(
+      nameMovie,
+      releaseYear,
+      duration,
+      genderId,
+      directorId,
+      image,
+      id_filme
+    )
+
+    res.status(201).send({ message: 'Filme editado com sucesso!' })
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` }, console.log(error))
+  }
+})
+
+routes.put('/edit/upload', upload.single('image'), (req, res) => {
+  try {
+    image = req.file.filename
+    res.status(201).send({ message: 'Upload editado com sucesso!' })
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` }, console.log(error))
+  }
+})
+
+
+routes.delete('/delete/:id_filme', (req, res) => {
+  try {
+    const { id_filme } = req.params
+
+    db.deleteMovie(id_filme)
+
+    res.status(201).send({ message: 'Filme deletado com sucesso!' })
+  } catch (error) {
+    return res.status(404).send({ message: `${error}` }, console.log(error))
+  }
+})
+
+
 module.exports = routes

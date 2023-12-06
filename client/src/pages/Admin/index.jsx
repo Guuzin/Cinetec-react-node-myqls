@@ -23,6 +23,12 @@ export default function Admin() {
           </Link>
         </div>
         <div className="btn-container">
+          <p className="btn-text">Registrar novo filme</p>
+          <Link to={'/admin/register/movie'}>
+            <button className="button__registrar">Registrar</button>
+          </Link>
+        </div>
+        <div className="btn-container">
           <p className="btn-text">Admintrar ator</p>
           <Link to={'/admin/actor'}>
             <button className="button__adminstrar">Administrar</button>
@@ -31,6 +37,12 @@ export default function Admin() {
         <div className="btn-container">
           <p className="btn-text">Administrar diretor</p>
           <Link to={'/admin/director'}>
+            <button className="button__adminstrar">Admintrar</button>
+          </Link>
+        </div>
+        <div className="btn-container">
+          <p className="btn-text">Administrar filme</p>
+          <Link to={'/admin/movie'}>
             <button className="button__adminstrar">Admintrar</button>
           </Link>
         </div>

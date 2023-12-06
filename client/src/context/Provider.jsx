@@ -7,6 +7,7 @@ export default function Provider({ children }) {
   const [actor, setActor] = useState([])
   const [loading, setLoading] = useState(true)
   const [genderData, setGenderData] = useState([])
+  const [movie, setMovie] = useState([])
 
   const value = {
     actor,
@@ -17,6 +18,8 @@ export default function Provider({ children }) {
     setDirector,
     genderData,
     setGenderData,
+    movie,
+    setMovie,
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

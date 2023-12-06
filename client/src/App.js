@@ -12,6 +12,8 @@ import Diretor from './pages/Diretor'
 import CadastroDiretor from './pages/CadastroDiretor'
 import AdminDiretor from './pages/AdminDiretor'
 import CadastroFilme from './pages/CadastroFilme'
+import Filme from './pages/Filme'
+import AdminFilme from './pages/AdminFilme'
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/actor" element={<Ator />} />
           <Route path="/director" element={<Diretor />} />
+          <Route path="/movie" element={<Filme />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/register/actor" element={<CadastroAtor />} />
           <Route
@@ -33,6 +36,7 @@ function App() {
           <Route path="/admin/register/movie" element={<CadastroFilme />} />
           <Route path="/admin/actor" element={<AdminAtor />} />
           <Route path="/admin/director" element={<AdminDiretor />} />
+          <Route path="/admin/movie" element={<AdminFilme />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -79,63 +79,88 @@ export default function RegisterMovie() {
   }
 
   return (
-    <div className="teste">
-      <form onSubmit={registerMovie}>
-        <label for="image">Enviar imagem</label>
-        <input
-          type="file"
-          name="image"
-          id="image"
-          onChange={(e) => setImage(e.target.files[0])}
-          required
-        />
+    <div className="register__movie container">
+      <div className="movie-card">
+        <form onSubmit={registerMovie}>
+          <div className="card__infos">
+            <label for="image">Enviar imagem</label>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              onChange={(e) => setImage(e.target.files[0])}
+              required
+            />
+          </div>
 
-        {image ? (
-          <img src={URL.createObjectURL(image)} alt="Imagem" />
-        ) : (
-          <img alt="Imagem" />
-        )}
-        <label>nome filme</label>
-        <input
-          type="text"
-          value={nameMovie}
-          onChange={(e) => setNameMovie(e.target.value)}
-        />
-        <label>ano lançamento</label>
-        <input
-          type="text"
-          value={releaseYear}
-          onChange={(e) => setReleaseYear(e.target.value)}
-        />
-        <label>duração</label>
-        <input
-          type="number"
-          value={duration}
-          onChange={(e) => setDuration(e.target.value)}
-        />
-        <label>diretor</label>
-        <select
-          value={directorId}
-          onChange={(e) => setDirectorID(e.target.value)}
-        >
-          {director.map((director) => (
-            <option key={director.id} value={director.id_diretor}>
-              {director.nome_diretor}
-            </option>
-          ))}
-        </select>
-        <label>genero</label>
-        <select value={genderId} onChange={(e) => setGenderID(e.target.value)}>
-          {genderData.map((genderData) => (
-            <option key={genderData.id} value={genderData.id_genero}>
-              {genderData.genero}
-            </option>
-          ))}
-        </select>
-        <br />
-        <button type="submit">enviar</button>
-      </form>
-
+          {image ? (
+            <img
+              src={URL.createObjectURL(image)}
+              alt="Imagem"
+              className="card__image"
+            />
+          ) : (
+            <img alt="Imagem" className="card__image" />
+          )}
+          <div className="card__infos">
+            <div className="inputs">
+              {/* <label>nome filme</label> */}
+              <input
+                type="text"
+                value={nameMovie}
+                onChange={(e) => setNameMovie(e.target.value)}
+              />
+              {/* <label>ano lançamento</label> */}
+              <input
+                className="release_year_input"
+                min={1000}
+                max={9999}
+                type="number"
+                value={releaseYear}
+                onChange={(e) => setReleaseYear(e.target.value)}
+                required
+                // onInvalid={(e) =>
+                //   e.target.setCustomValidity('Enter User Name Here')
+                // }
+                // onInput={(e) => e.target.setCustomValidity('')}
+              />
+              {/* <label>duração</label> */}
+              <input
+                type="number"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+              />
+              {/* <label>diretor</label> */}
+              <select
+                value={directorId}
+                onChange={(e) => setDirectorID(e.target.value)}
+              >
+                {director.map((director) => (
+                  <option key={director.id} value={director.id_diretor}>
+                    {director.nome_diretor}
+                  </option>
+                ))}
+              </select>
+              {/* <label>genero</label> */}
+              <select
+                value={genderId}
+                onChange={(e) => setGenderID(e.target.value)}
+              >
+                {genderData.map((genderData) => (
+                  <option key={genderData.id} value={genderData.id_genero}>
+                    {genderData.genero}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="div_buttons">
+              <button type="submit" className="button__green">
+                cadastrar filme
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
       <form onSubmit={registerGender}>
         <label>crie genero</label>
         <input
@@ -143,7 +168,11 @@ export default function RegisterMovie() {
           value={gender}
           onChange={(e) => setGender(e.target.value)}
         />
-        <button type="submit">criar</button>
+        <div className="div_buttons">
+          <button type="submit" className="button__green">
+            cadastrar genero
+          </button>
+        </div>
       </form>
     </div>
   )

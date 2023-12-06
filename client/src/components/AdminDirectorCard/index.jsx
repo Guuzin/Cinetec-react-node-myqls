@@ -56,7 +56,7 @@ export default function AdminDirectorCard({ data }) {
 
   async function handleDeleteDirector() {
     try {
-      await api.delete(`http://localhost:3333/Director/delete/${id_diretor}`)
+      await api.delete(`http://localhost:3333/director/delete/${id_diretor}`)
       alert('Diretor deletado com sucesso')
     } catch (erro) {
       alert(`Erro ao deletar. ${erro}`)

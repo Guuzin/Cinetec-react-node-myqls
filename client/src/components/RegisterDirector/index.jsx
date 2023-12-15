@@ -10,7 +10,7 @@ export default function RegisterDirector() {
   const [image, setImage] = useState('')
 
   async function registerDirector(e) {
-    e.preventDefault()
+    window.location.reload()
 
     const dataDirector = { nameDirector, nationality, sex, birth }
 

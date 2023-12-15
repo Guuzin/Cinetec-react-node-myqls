@@ -66,11 +66,11 @@ export default function AdminDirectorCard({ data }) {
   return (
     <div className="actor-card">
       <div className="card__infos">
-        <label for="image">Enviar imagem</label>
+        <label for={`image${id_diretor}`}>Enviar imagem</label>
         <input
           type="file"
           name="image"
-          id="image"
+          id={`image${id_diretor}`}
           onChange={(e) => setImage(e.target.files[0])}
         />
       </div>

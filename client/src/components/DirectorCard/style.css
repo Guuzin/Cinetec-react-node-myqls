@@ -35,3 +35,8 @@
 .director-card:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+.text_span{
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bolder;
+}

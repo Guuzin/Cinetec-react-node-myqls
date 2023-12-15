@@ -108,11 +108,11 @@ export default function AdminMovieCard({ data }) {
   return (
     <div className="actor-card">
       <div className="card__infos">
-        <label for="image">Enviar imagem</label>
+        <label for={`image${id_filme}`}>Enviar imagem</label>
         <input
           type="file"
           name="image"
-          id="image"
+          id={`image${id_filme}`}
           onChange={(e) => setImage(e.target.files[0])}
           required
         />

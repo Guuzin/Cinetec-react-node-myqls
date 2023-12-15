@@ -4,12 +4,14 @@ import api from '../../api'
 
 export default function RegisterActor() {
   const [nameActor, setNameActor] = useState('')
-  const [sex, setSex] = useState('')
+  const [sex, setSex] = useState('M')
   const [birth, setBirth] = useState('')
   const [image, setImage] = useState('')
 
-  async function registerActor(e) {
-    e.preventDefault()
+  console.log(`teste ${sex}`)
+
+  async function registerActor() {
+    window.location.reload()
 
     const dataActor = { nameActor, sex, birth }
 

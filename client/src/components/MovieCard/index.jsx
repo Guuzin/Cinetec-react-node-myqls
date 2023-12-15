@@ -19,11 +19,11 @@ export default function MovieCard({ data }) {
         className="card__image"
       />
       <div className="card__infos">
-        <h2 className="card__name"> {nome_filme}</h2>
-        <h2 className="card__birth"> {ano_lancamento}</h2>
-        <h2 className="card__birth">{duracao}</h2>
-        <h2 className="card__birth">{nome_diretor}</h2>
-        <h2 className="card__birth">{genero}</h2>
+        <h2 className="card__name">{nome_filme}</h2>
+        <h2 className="card__birth"><span className='text_span'>Data de lançamento:</span> {ano_lancamento}</h2>
+        <h2 className="card__birth"><span className='text_span'>Duração:</span> {duracao}</h2>
+        <h2 className="card__birth"><span className='text_span'>Diretor:</span> {nome_diretor}</h2>
+        <h2 className="card__birth"><span className='text_span'>Gênero:</span> {genero}</h2>
       </div>
     </div>
   )

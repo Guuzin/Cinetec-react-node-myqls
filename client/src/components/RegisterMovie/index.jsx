@@ -16,7 +16,8 @@ export default function RegisterMovie() {
     useContext(AppContext)
 
   async function registerMovie(e) {
-    e.preventDefault()
+    window.location.reload()
+
     const dataMovie = { nameMovie, releaseYear, duration, genderId, directorId }
 
     const formData = new FormData()
@@ -65,8 +66,6 @@ export default function RegisterMovie() {
   }, [genderData, director])
 
   async function registerGender(e) {
-    e.preventDefault()
-
     const dataGender = { gender }
 
     try {

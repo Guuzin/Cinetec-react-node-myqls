@@ -11,6 +11,8 @@ export default function AdminActorCard({ data }) {
   )
   const [image, setImage] = useState('')
 
+  console.log(`teste ${sex}`)
+
   const dataActor = { id_ator, nameActor, sex, birth }
   const dataActor2 = { id_ator, nameActor, sex, birth, foto_ator }
 
@@ -51,11 +53,11 @@ export default function AdminActorCard({ data }) {
   return (
     <div className="actor-card">
       <div className="card__infos">
-        <label for="image">Enviar imagem</label>
+        <label for={`image${id_ator}`}>Enviar imagem</label>
         <input
           type="file"
           name="image"
-          id="image"
+          id={`image${id_ator}`}
           onChange={(e) => setImage(e.target.files[0])}
         />
       </div>

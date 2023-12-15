@@ -19,7 +19,7 @@ export default function DirectorCard({ data }) {
       />
       <div className="card__infos">
         <h2 className="card__name"> {nome_diretor}</h2>
-        <h2 className="card__birth">{nacionalidade}</h2>
+        <h2 className="card__birth"><span className='text_span'>Nacionalidade:</span> {nacionalidade}</h2>
         <h2 className="card__birth">
           {new Date(dt_nascimento).toLocaleDateString('pt-br', options)}
         </h2>

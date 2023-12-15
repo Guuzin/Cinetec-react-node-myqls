@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 export default function Index() {
   return (
-    <div>
+    <div className="container">
       <h1>Seja bem vindo!</h1>
       <br />
       <h3>Cadastre-se</h3>
